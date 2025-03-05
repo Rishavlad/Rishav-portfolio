@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useForm } from 'react-hook-form';
 import { Mail, Phone, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 type FormData = {
   name: string;
@@ -32,40 +33,37 @@ const Contact = () => {
     try {
       setFormStatus('submitting');
       
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
+      const response = await emailjs.send(
+        'service_12kvigr', // Replace with your EmailJS service ID
+        'template_ttdtsb7', // Replace with your EmailJS template ID
+        {
+          from_name: data.name,
+          from_email: data.email,
           message: data.message,
-          recipient: 'rishav@rishavs.com.np',
-          subject: 'New Contact Form Submission'
-        }),
-      });
+          to_email: 'rishav@rishavs.com.np',
+          timestamp: new Date().toLocaleString('en-US', {
+            timeZone: 'Asia/Kathmandu'
+          })
+        },
+        'DdNfHT2FHbDXmq4H1' // Replace with your EmailJS public key
+      );
       
-      const result = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(result.message || 'Failed to send email');
+      if (response.status === 200) {
+        setFormStatus('success');
+        reset();
+        
+        setTimeout(() => {
+          setFormStatus('idle');
+        }, 5000);
+      } else {
+        throw new Error('Failed to send email');
       }
-      
-      setFormStatus('success');
-      reset(); // Clear the form
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setFormStatus('idle');
-      }, 5000);
       
     } catch (error) {
       console.error('Error sending email:', error);
       setFormStatus('error');
       setErrorMessage(error instanceof Error ? error.message : 'An unknown error occurred');
       
-      // Reset error message after 5 seconds
       setTimeout(() => {
         setFormStatus('idle');
         setErrorMessage('');
