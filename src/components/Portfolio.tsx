@@ -18,7 +18,7 @@ const portfolioItems: PortfolioItem[] = [
     title: "Talking Head Videos",
     description: "Videos of you specking with high quality edits",
     category: "Talking Video",
-    videoUrl: "images/Videos/website video (2).mp4",
+    videoUrl: "https://github.com/user-attachments/assets/8fc6784c-01e2-490a-b7f0-20d9d0427de4",
     thumbnailUrl: "/images/dance-thumbnail.jpg"
   },
   {
@@ -26,7 +26,7 @@ const portfolioItems: PortfolioItem[] = [
     title: "3D Social Media Video",
     description: "Videos with 3D elements and feature for a professional looking Video",
     category: "3D Video",
-    videoUrl: "images/Videos/website video (3).mp4",
+    videoUrl: "https://github.com/user-attachments/assets/d33b5059-0879-4ea3-bf79-d83006a47af3",
     thumbnailUrl: "/images/fashion-thumbnail.jpg"
   },
   {
@@ -34,7 +34,7 @@ const portfolioItems: PortfolioItem[] = [
     title: "Music Video Edit",
     description: "Attention grabbing musical video edits",
     category: "Music Video",
-    videoUrl: "images/Videos/website video (4).mp4",
+    videoUrl: "https://github.com/user-attachments/assets/f1e24730-4585-4f31-b54b-8cb64b6c387f",
     thumbnailUrl: "/images/urban-thumbnail.jpg"
   },
   {
@@ -42,7 +42,7 @@ const portfolioItems: PortfolioItem[] = [
     title: "Long into Short Form",
     description: "Convert your one long form video into multiple amazing short form videos",
     category: "Content Management",
-    videoUrl: "images/Videos/website video (5).mp4",
+    videoUrl: "https://github.com/user-attachments/assets/4ad3208c-d87b-44c6-a5da-b3e9bbd5dc8b",
     thumbnailUrl: "/images/yoga-thumbnail.jpg"
   },
   {
@@ -50,7 +50,7 @@ const portfolioItems: PortfolioItem[] = [
     title: "Long Form Content",
     description: "One of our expertise is my our professional looking and High Quality long form content",
     category: "Long Form Content",
-    videoUrl: "images/Videos/website video (6).mp4",
+    videoUrl: "https://github.com/user-attachments/assets/978bc4c8-d6b7-449c-86d8-922729f0992f",
     thumbnailUrl: "/images/city-thumbnail.jpg"
   },
   {
