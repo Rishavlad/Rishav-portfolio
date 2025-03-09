@@ -1,58 +1,73 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
-const categories = ['All', 'Web Design', 'Branding', 'UI/UX', 'Photography'];
+interface PortfolioItem {
+  id: number;
+  title: string;
+  description: string;
+  category: string;
+  videoUrl: string;
+  thumbnailUrl: string;
+}
 
-const portfolioItems = [
+const portfolioItems: PortfolioItem[] = [
   {
     id: 1,
-    title: 'Modern Website Design',
-    category: 'Web Design',
-    image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    title: "Talking Head Videos",
+    description: "Videos of you specking with high quality edits",
+    category: "Talking Video",
+    videoUrl: "images/Videos/website video (2).mp4",
+    thumbnailUrl: "/images/dance-thumbnail.jpg"
   },
   {
     id: 2,
-    title: 'Brand Identity',
-    category: 'Branding',
-    image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    title: "3D Social Media Video",
+    description: "Videos with 3D elements and feature for a professional looking Video",
+    category: "3D Video",
+    videoUrl: "images/Videos/website video (3).mp4",
+    thumbnailUrl: "/images/fashion-thumbnail.jpg"
   },
   {
     id: 3,
-    title: 'Mobile App Design',
-    category: 'UI/UX',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    title: "Music Video Edit",
+    description: "Attention grabbing musical video edits",
+    category: "Music Video",
+    videoUrl: "images/Videos/website video (4).mp4",
+    thumbnailUrl: "/images/urban-thumbnail.jpg"
   },
   {
     id: 4,
-    title: 'Product Photography',
-    category: 'Photography',
-    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    title: "Long into Short Form",
+    description: "Convert your one long form video into multiple amazing short form videos",
+    category: "Content Management",
+    videoUrl: "images/Videos/website video (5).mp4",
+    thumbnailUrl: "/images/yoga-thumbnail.jpg"
   },
   {
     id: 5,
-    title: 'E-commerce Platform',
-    category: 'Web Design',
-    image: 'https://images.unsplash.com/photo-1523380744952-b7e00e6e2ffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    title: "Long Form Content",
+    description: "One of our expertise is my our professional looking and High Quality long form content",
+    category: "Long Form Content",
+    videoUrl: "images/Videos/website video (6).mp4",
+    thumbnailUrl: "/images/city-thumbnail.jpg"
   },
   {
     id: 6,
-    title: 'Logo Collection',
-    category: 'Branding',
-    image: 'https://images.unsplash.com/photo-1524234107056-1c1f48f64ab8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    title: "Hooks and Transitions",
+    description: "Make your video stand out with creative hooks and transition",
+    category: "Hooks",
+    videoUrl: "images/Videos/website video (1).mp4",
+    thumbnailUrl: "/images/morning-thumbnail.jpg"
   }
 ];
 
 const Portfolio = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
-
-  const filteredItems = portfolioItems.filter(
-    item => activeCategory === 'All' || item.category === activeCategory
-  );
 
   return (
     <section id="portfolio" className="section-padding bg-gray-50">
@@ -64,60 +79,117 @@ const Portfolio = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-6">Our Portfolio</h2>
+          <h2 className="text-4xl font-bold mb-6">Our Work</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Explore our latest work and creative solutions that help businesses grow
-            and succeed in the digital world.
+            Explore our latest video projects showcasing creative storytelling
+            and professional production quality.
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full transition-colors shadow-custom ${
-                activeCategory === category
-                  ? 'bg-black text-white'
-                  : 'bg-white text-gray-600 hover:bg-gray-100'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        <motion.div 
+          layout 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {filteredItems.map((item) => (
-            <motion.div
-              key={item.id}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="portfolio-item rounded-lg overflow-hidden"
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div className="portfolio-overlay flex items-center justify-center">
-                <div className="text-center text-white">
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p>{item.category}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          <AnimatePresence>
+            {portfolioItems.map((item) => (
+              <PortfolioCard key={item.id} item={item} />
+            ))}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>
+  );
+};
+
+const PortfolioCard = ({ item }: { item: PortfolioItem }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayPause = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current && !isError) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play().catch(() => {
+          setIsError(true);
+        });
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleMuteToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current && !isError) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="video-card transform hover:scale-105 transition-all duration-300"
+      style={{
+        boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.2)',
+      }}
+    >
+      <div className="relative" style={{ paddingBottom: '177.77%' }}> {/* 16:9 aspect ratio */}
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover rounded-xl"
+          poster={item.thumbnailUrl}
+          src={item.videoUrl}
+          muted
+          playsInline
+          loop
+          autoPlay
+          onError={() => setIsError(true)}
+          loading="lazy"
+        />
+        
+        <div className="video-overlay">
+          <div className="video-controls">
+            <button
+              onClick={handlePlayPause}
+              className="video-button"
+              aria-label={isPlaying ? "Pause" : "Play"}
+            >
+              {isPlaying ? (
+                <Pause className="w-6 h-6 text-black" />
+              ) : (
+                <Play className="w-6 h-6 text-black" />
+              )}
+            </button>
+            <button
+              onClick={handleMuteToggle}
+              className="video-button"
+              aria-label={isMuted ? "Unmute" : "Mute"}
+            >
+              {isMuted ? (
+                <VolumeX className="w-6 h-6 text-black" />
+              ) : (
+                <Volume2 className="w-6 h-6 text-black" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="p-4 bg-white rounded-b-xl">
+        <h3 className="text-lg font-bold mb-1">{item.title}</h3>
+        <p className="text-gray-600 text-sm">{item.description}</p>
+        <span className="inline-block mt-2 px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600">
+          {item.category}
+        </span>
+      </div>
+    </motion.div>
   );
 };
 
