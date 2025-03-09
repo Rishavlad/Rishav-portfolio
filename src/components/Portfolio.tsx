@@ -58,7 +58,7 @@ const portfolioItems: PortfolioItem[] = [
     title: "Hooks and Transitions",
     description: "Make your video stand out with creative hooks and transition",
     category: "Hooks",
-    videoUrl: "images/Videos/website video (1).mp4",
+    videoUrl: "https://github.com/user-attachments/assets/8a16ea18-f8d2-4326-8bd6-7f0f4e963d5b",
     thumbnailUrl: "/images/morning-thumbnail.jpg"
   }
 ];
