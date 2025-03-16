@@ -4,36 +4,36 @@ import { useInView } from 'react-intersection-observer';
 
 const clients = [
   {
-    name: 'Acme Corporation',
-    logo: 'https://images.unsplash.com/photo-1563694983011-6f4d90358083?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
+    name: 'NEPLY',
+    logo: 'https://github.com/user-attachments/assets/0c613d32-486b-4054-b294-9e532125d8f6'
   },
   {
     name: 'TechGiant',
-    logo: 'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
+    logo: 'https://github.com/user-attachments/assets/5d04dd3f-4098-4afc-b873-d37e0a02a377'
   },
   {
-    name: 'Globex',
-    logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
+    name: 'Classic Wears',
+    logo: 'https://github.com/user-attachments/assets/5eeebdd4-9712-47e2-b539-9376521b08ce'
   },
   {
-    name: 'Initech',
-    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
+    name: 'SMB',
+    logo: 'https://github.com/user-attachments/assets/4c468e62-eeb9-40f6-8c38-881431f1ff57'
   },
   {
-    name: 'Umbrella Corp',
-    logo: 'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
+    name: 'Blue Ridge',
+    logo: 'https://github.com/user-attachments/assets/b697b129-4e17-441a-a903-1d6a768043d7'
   },
   {
-    name: 'Soylent Corp',
-    logo: 'https://images.unsplash.com/photo-1581287053822-fd7bf4f4bfec?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
+    name: 'Kthree Events',
+    logo: 'https://github.com/user-attachments/assets/30f52fad-6436-4dd9-afb7-0b1806ed3494'
   },
   {
-    name: 'Massive Dynamic',
-    logo: 'https://images.unsplash.com/photo-1568217772595-011499988b3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
+    name: 'Ryall Marketing',
+    logo: 'https://github.com/user-attachments/assets/b6eb4a85-a887-4a95-a5f2-5e756ee54c74'
   },
   {
-    name: 'Stark Industries',
-    logo: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80'
+    name: 'Infinite Marketing',
+    logo: 'https://github.com/user-attachments/assets/628da6b7-d8c1-463f-bde4-35d40c309a51'
   }
 ];
 
@@ -53,7 +53,7 @@ const Clients = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-6">Our Clients</h2>
+          <h2 className="text-4xl font-bold mb-6">Companies Worked With</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             We're proud to work with amazing companies from around the world.
           </p>
