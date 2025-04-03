@@ -83,6 +83,7 @@ const Portfolio = () => {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Explore our latest video projects showcasing creative storytelling
             and professional production quality.
+            (Generated +10M Combined)
           </p>
         </motion.div>
 
