@@ -100,7 +100,7 @@ const Contact = () => {
                 <Mail className="w-6 h-6 text-gray-600" />
                 <div>
                   <h3 className="text-lg font-semibold mb-1">Email</h3>
-                  <p className="text-gray-600">rishav@rishavs.com.np</p>
+                  <p className="text-gray-600">hello@rishavs.com.np</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
